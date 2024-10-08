@@ -1,4 +1,4 @@
-NAME = Exec
+NAME = Bureau
 SRCS = main.cpp Bureaucrat.cpp
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
