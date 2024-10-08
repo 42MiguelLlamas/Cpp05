@@ -9,44 +9,78 @@ int main(void)
 	ShrubberyCreationForm B;
 	PresidentialPardonForm C;
 	RobotomyRequestForm D;
-	
-	std::cout << A << std::endl;
-	std::cout << B << std::endl;
-	std::cout << C << std::endl;
-	std::cout << D << std::endl;
+	std::cout << "\n---------Initial values--------"<< std::endl;
+	std::cout << A;
+	std::cout << B;
+	std::cout << C;
+	std::cout << D;
 
 	//AForm E("C", 0, 0); //This will fail because its abstract class;
+
+	std::cout << "\n---------Signing Forms--------"<< std::endl;
+
 	try
 	{
 		B.beSigned(A);
+		C.beSigned(A);
+		D.beSigned(A);
 	}
 	catch(Bureaucrat::GradeTooLowException &e)
 	{
 		std::cerr<< A.getName() << " - Failed: " << e.what()<< std::endl;
 	}
-	std::cout << A << std::endl;
+	std::cout << "\n---------After Signing--------"<< std::endl;
+	std::cout << B;
+	std::cout << C;
+	std::cout << D;
+	std::cout << "\n---------Signing from Bureaucrat--------"<< std::endl;
 	try 
 	{
 		A.signForm(B);
+		A.signForm(C);
+		A.signForm(D);
 	}
 	catch(Bureaucrat::GradeTooLowException &e)
 	{
 		std::cerr<< A.getName() << " - Failed: " << e.what()<< std::endl;
 	}
-	std::cout << A << std::endl;
+	std::cout << "\n---------After Signing from Bureaucrat--------"<< std::endl;
+	std::cout << B;
+	std::cout << C;
+	std::cout << D;
+
+	std::cout << "\n---------Executing B--------"<< std::endl;
 	try
 	{
-		A.incrementGrade(5);
-		A.signForm(B);
-		std::cout << B << std::endl;
 		B.execute(A);
 	}
-	catch(Bureaucrat::GradeTooHighException &e)
+	catch(Bureaucrat::GradeTooLowException &e)
 	{
 		std::cerr<< A.getName() << " - Failed: " << e.what()<< std::endl;
 	}
-	
+	std::cout << "\n---------Executing C--------"<< std::endl;
+	try
+	{
+		C.execute(A);
+	}
+	catch(Bureaucrat::GradeTooLowException &e)
+	{
+		std::cerr<< A.getName() << " - Failed: " << e.what()<< std::endl;
+	}
+	std::cout << "\n---------Executing D--------"<< std::endl;
+	try
+	{
+		D.execute(A);
+	}
+	catch(Bureaucrat::GradeTooLowException &e)
+	{
+		std::cerr<< A.getName() << " - Failed: " << e.what()<< std::endl;
+	}
+	std::cout << "\n---------Final values--------"<< std::endl;
+	std::cout << B;
+	std::cout << C;
+	std::cout << D;
 
-	
+	std::cout << "\n--------- Destructors--------"<< std::endl;
 	return 0;
 }
