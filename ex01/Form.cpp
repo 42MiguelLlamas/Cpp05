@@ -55,7 +55,7 @@ std::ostream& operator<<(std::ostream& os, Form const& obj)
     os <<"Form name: " << obj.getName() << "." << 
 	" Form grade to sign: " << obj.getGradeSign() << "." <<
 	" Form grade to exec: " << obj.getGradeExec() << "."  <<
-	"Signed: " << obj.getSigned() << "."<< std::endl;
+	"Signed: " << obj.getSigned() << ".";
     return os;
 }
 

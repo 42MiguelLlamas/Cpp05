@@ -50,7 +50,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat const& obj)
 {
-    os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << std::endl;
+    os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
     return os;
 }
 
@@ -75,6 +75,6 @@ void Bureaucrat::decrementGrade(int decrement)
 {
 	if ((this->grade + decrement) > 150)
 		throw GradeTooLowException();
-	this->grade =  this->grade - decrement;
+	this->grade =  this->grade + decrement;
 }
 

@@ -35,18 +35,18 @@ int main(void)
 		std::cerr<< A.getName() << " - Failed: " << e.what()<< std::endl;
 	}
 
-	/*
-	Bureaucrat C(0,"C"); This will fail
-	try  Asi controlamos
+	
+	//Bureaucrat C(0,"C"); //This will fail
+	try  //Asi controlamos
 	{
 		Bureaucrat C(0,"C");
 	}
 	catch(Bureaucrat::GradeTooHighException &e)
 	{
-		std::cerr<< A.getName() << " - Failed: " << e.what()<< std::endl;
+		std::cerr<< "Failed instance: " << e.what()<< std::endl;
 	}
-	std::cout << C << std::endl;
-	*/
+	//std::cout << C << std::endl;
+	
 	
 	return 0;
 }
